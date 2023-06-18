@@ -20,3 +20,10 @@ def mapp_species(x):
 
 df['species'] = df['species'].apply(mapp_species)
 print(df)
+
+
+st.subheader('this is table')
+st.table(df.head())
+
+st.subheader('this is data frame')
+st.dataframe(df.head())
