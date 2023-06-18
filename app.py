@@ -28,10 +28,14 @@ from math import sqrt
 
 
 
-#st.title('데이터보')
+st.title('데이터')
+df = pd.read_csv('/dataset/kemp-process-rate.csv', encoding='cp949')
 
-DATA_URL = ('')
+#DATA_URL = ('')
 
+if st.checkbox('Show raw data'):
+    st.subheader('Raw data')
+    st.write(df)
 
 
 # 페이지 기본 설정
@@ -58,10 +62,7 @@ cols[0].metric("10/11", "15 °C", "2")
 # 라인 그래프 데이터 생성(with. Pandas)
 
 
-chart_data = pd.DataFrame(
-    np.random.randn(20, 1),
-    column=['time'],
-    raws=['PH','temp'] )
-
-
-df = pd.read_csv('/dataset/kemp-process-rate.csv', encoding='cp949')
+#chart_data = pd.DataFrame(
+    #np.random.randn(20, 1),
+    #column=['time'],
+    #raws=['PH','temp'] )
