@@ -65,36 +65,3 @@ chart_data = pd.DataFrame(
     np.random.randn(20, 1),
     column=['time'],
     raws=['PH','temp'] )
-
-# 컬럼 나머지 부분에 라인차트 생성
-cols[2].line_chart(chart_data)
-
-import datetime
-import streamlit as st
-
-d = st.date_input(
-    "TODAY",
-    datetime.date(2023, 6, 20))
-st.write('TODAY:', d)
-
-
-cols[1].line_chart(chart_data)
-
-
-
-# 특정 시간 범위 설정
-start_time = pd.to_datetime('2021-09-10 09:01:18')
-end_time = pd.to_datetime('2021-09-10 10:30:00')
-
-# 해당 시간 범위의 데이터 추출
-subset = X_data[(X_data.index >= start_time) & (X_data.index <= end_time)]
-
-# 온도와 품질 그래프
-plt.figure(figsize=(10,5))
-plt.plot(subset.index, subset['pH'], color='tab:blue', label='pH')
-plt.plot(subset.index, subset['Process'], color='tab:red', label='Process')
-plt.xlabel('Time')
-plt.ylabel('Value')
-plt.title('Time vs pH/Process')
-plt.legend()
-plt.show()
