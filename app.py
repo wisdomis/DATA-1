@@ -63,7 +63,7 @@ cols[1].metric("10/15", "14 °C", "-3 °F")
 
 chart_data = pd.DataFrame(
     np.random.randn(20, 1),
-    column=['time']
+    column=['time'],
     raws=['PH','temp'] )
 
 # 컬럼 나머지 부분에 라인차트 생성
