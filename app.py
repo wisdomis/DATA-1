@@ -56,19 +56,3 @@ d = st.date_input(
     datetime.date(2023, 6, 20))
 st.write('DAY:', d)
 
-
-
-
-
-iris_dataset = load_iris()
-
-df= pd.DataFrame(data=iris_dataset.data,columns= iris_dataset.feature_names)
-df.columns= [ col_name.split(' (cm)')[0] for col_name in df.columns] # 컬럼명을 뒤에 cm 제거하였습니다
-df['species']= iris_dataset.target 
-
-
-species_dict = {0 :'setosa', 1 :'versicolor', 2 :'virginica'} 
-
-def mapp_species(x):
-return species_dict[x]
-
