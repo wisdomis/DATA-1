@@ -16,7 +16,8 @@ print("Df1 Lists : ", df1_lists)
 
 
 #데이터 나누기
-data_lists = [filename for filename in df1_lists if filename != 'kemp-process-rate.csv']
+df = pd.read_csv('/dataset/kemp-process-rate.csv', encoding='UTF8')
+#data_lists = [filename for filename in df1_lists if filename != 'kemp-process-rate.csv']
 error_list = 'kemp-process-rate.csv'
 
 print("Data Lists : ", data_lists)

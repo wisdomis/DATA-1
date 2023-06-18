@@ -47,15 +47,10 @@ with st.spinner(text="페이지 로딩중..."):
 st.header("생산시스템구축실무 데이터보팀")
 st.subheader("공정운영 최적화 데이터 분석")
 
-df = pd.read_csv('/dataset/kemp-process-rate.csv', encoding='cp949')
-
-if st.checkbox('Show raw data'):
-    st.subheader('Raw data')
-    st.write(df)
 
 
 # 페이지 컬럼 분할(예: 부트스트랩 컬럼, 그리드)
-#cols = st.columns((1,))
+cols = st.columns((1,))
 #cols[0].metric("10/11", "15 °C", "2")
 
 
@@ -67,3 +62,6 @@ if st.checkbox('Show raw data'):
     #np.random.randn(20, 1),
     #column=['time'],
     #raws=['PH','temp'] )
+
+
+cols[2].line_chart(chart_data)
