@@ -50,12 +50,9 @@ st.header("생산시스템구축실무 데이터보팀")
 st.subheader("공정운영 최적화 데이터 분석")
 
 # 페이지 컬럼 분할(예: 부트스트랩 컬럼, 그리드)
-cols = st.columns((1, 1, 2))
+cols = st.columns((1,))
 cols[0].metric("10/11", "15 °C", "2")
 
-cols[0].metric("10/13", "15 °C", "2")
-
-cols[1].metric("10/15", "14 °C", "-3 °F")
 
 
 # 라인 그래프 데이터 생성(with. Pandas)
@@ -65,3 +62,7 @@ chart_data = pd.DataFrame(
     np.random.randn(20, 1),
     column=['time'],
     raws=['PH','temp'] )
+
+
+
+df = pd.read_csv('kemp-process-rate.csv')
