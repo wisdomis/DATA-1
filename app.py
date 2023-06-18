@@ -3,7 +3,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.datasets import load_iris 
+#from sklearn.datasets import load_iris 
 from PIL import Image
 from time import sleep
 
