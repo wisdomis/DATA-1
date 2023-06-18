@@ -59,9 +59,27 @@ cols[1].metric("10/15", "14 °C", "-3 °F")
 
 
 # 라인 그래프 데이터 생성(with. Pandas)
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['a', 'b', 'c'])
+
+df = os.getcwd()
+df_lists = os.listdir(df)
+print("Df Lists : ", df_lists)
+
+
+#데이터 조합화
+def csv_read_(data_dir, data_list):
+    tmp = pd.read_csv(os.path.join(data_dir, data_list), sep=',', encoding='UTF8')
+    y, m, d = map(int, data_list.split('-')[-1].split('.')[:-1])
+    time = tmp['Time']
+    tmp['DTime'] = '-'.join(data_list.split('-')[-1].split('.')[:-1])
+    ctime = time.apply(lambda _: _.replace(u'오후', 'PM').replace(u'오전', 'AM'))
+    n_time = ctime.apply(lambda _: datetime.datetime.strptime(_, "%p %I:%M:%S"))
+    newtime = n_time.apply(lambda _: _.replace(year=y, month=m, day=d))
+    tmp['Time'] = newtime
+    return tmp
+
+#chart_data = pd.DataFrame(
+    #np.random.randn(20, 3),
+    #columns=['a', 'b', 'c'])
 
 # 컬럼 나머지 부분에 라인차트 생성
 cols[2].line_chart(chart_data)
@@ -75,7 +93,7 @@ d = st.date_input(
 st.write('TODAY:', d)
 
 
-cols[2].line_chart(chart_data)
+cols[1].line_chart(chart_data)
 
 
 
